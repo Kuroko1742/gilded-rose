@@ -18,6 +18,8 @@ class GildedRose(object):
                 if item.quality > 0:
                     if not is_sulfuras:
                         item.quality = item.quality - (2 if is_conjured else 1)
+                        if item.quality < 0:
+                            item.quality = 0
             else:
                 if item.quality < 50:
                     item.quality = item.quality + 1
@@ -36,6 +38,8 @@ class GildedRose(object):
                         if item.quality > 0:
                             if not is_sulfuras:
                                 item.quality = item.quality - (2 if is_conjured else 1)
+                                if item.quality < 0:
+                                    item.quality = 0
                     else:
                         item.quality = item.quality - item.quality
                 else:
