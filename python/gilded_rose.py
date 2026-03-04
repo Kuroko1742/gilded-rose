@@ -12,6 +12,8 @@ class GildedRose(object):
             is_backstage = item.name == "Backstage passes to a TAFKAL80ETC concert"
             is_sulfuras = item.name == "Sulfuras, Hand of Ragnaros"
 
+            is_conjured = item.name.startswith("Conjured")
+
             if not is_aged_brie and not is_backstage:
                 if item.quality > 0:
                     if not is_sulfuras:
