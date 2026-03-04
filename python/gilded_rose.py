@@ -35,7 +35,7 @@ class GildedRose(object):
                     if not is_backstage:
                         if item.quality > 0:
                             if not is_sulfuras:
-                                item.quality = item.quality - 1
+                                item.quality = item.quality - (2 if is_conjured else 1)
                     else:
                         item.quality = item.quality - item.quality
                 else:
