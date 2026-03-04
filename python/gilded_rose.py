@@ -6,6 +6,14 @@ class GildedRose(object):
         self.items = items
 
     def update_quality(self):
+        def clamp_quality(x):
+            if x < 0:
+                return 0
+            elif x > 50:
+                return 50
+            else:
+                return x
+
         for item in self.items:
 
             is_aged_brie = item.name == "Aged Brie"
