@@ -21,9 +21,10 @@ class GildedRose(object):
             is_sulfuras = item.name == "Sulfuras, Hand of Ragnaros"
 
             is_conjured = item.name.startswith("Conjured")
+            degrade = 2 if is_conjured else 1
 
             if not is_aged_brie and not is_backstage:
-                item.quality = clamp_quality(item.quality - (2 if is_conjured else 1))
+                item.quality = clamp_quality(item.quality - degrade)
             else:
                 if item.quality < 50:
                     item.quality = item.quality + 1
@@ -39,7 +40,7 @@ class GildedRose(object):
             if item.sell_in < 0:
                 if not is_aged_brie:
                     if not is_backstage:
-                            item.quality = clamp_quality(item.quality - (2 if is_conjured else 1))
+                            item.quality = clamp_quality(item.quality - degrade)
                     else:
                         item.quality = 0
                 else:
