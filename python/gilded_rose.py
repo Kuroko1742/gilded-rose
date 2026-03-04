@@ -23,11 +23,7 @@ class GildedRose(object):
             is_conjured = item.name.startswith("Conjured")
 
             if not is_aged_brie and not is_backstage:
-                if item.quality > 0:
-                    if not is_sulfuras:
-                        item.quality = item.quality - (2 if is_conjured else 1)
-                        if item.quality < 0:
-                            item.quality = 0
+                item.quality = clamp_quality(item.quality - (2 if is_conjured else 1))
             else:
                 if item.quality < 50:
                     item.quality = item.quality + 1
@@ -43,11 +39,7 @@ class GildedRose(object):
             if item.sell_in < 0:
                 if not is_aged_brie:
                     if not is_backstage:
-                        if item.quality > 0:
-                            if not is_sulfuras:
-                                item.quality = item.quality - (2 if is_conjured else 1)
-                                if item.quality < 0:
-                                    item.quality = 0
+                            item.quality = clamp_quality(item.quality - (2 if is_conjured else 1))
                     else:
                         item.quality = 0
                 else:
