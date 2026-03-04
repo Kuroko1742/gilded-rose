@@ -17,7 +17,7 @@ class GildedRose(object):
             if not is_aged_brie and not is_backstage:
                 if item.quality > 0:
                     if not is_sulfuras:
-                        item.quality = item.quality - 1
+                        item.quality = item.quality - (2 if is_conjured else 1)
             else:
                 if item.quality < 50:
                     item.quality = item.quality + 1
