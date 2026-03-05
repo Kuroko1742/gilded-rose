@@ -1,4 +1,4 @@
-from gilded_rose import Item, GildedRose
+from python.gilded_rose import Item, GildedRose
 
 if __name__ == '__main__':
     items = [Item("Aged Brie", quality=10, sell_in=10)]
